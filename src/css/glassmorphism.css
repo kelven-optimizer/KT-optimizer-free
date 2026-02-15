@@ -1,0 +1,166 @@
+/* =====================================================
+   GLASSMORPHISM STYLES v2.0
+   Modern frosted glass effect components with enhanced visuals
+   ===================================================== */
+
+.glass-card {
+    background: linear-gradient(145deg, rgba(17, 24, 39, 0.7), rgba(31, 41, 55, 0.5));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(99, 102, 241, 0.12);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+    border-color: rgba(99, 102, 241, 0.25);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45), 0 0 30px rgba(99, 102, 241, 0.08);
+}
+
+.glass-panel {
+    background: rgba(26, 31, 46, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.glass-overlay {
+    background: rgba(10, 14, 26, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Glass variants with color tints */
+.glass-purple {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.12), rgba(99, 102, 241, 0.08));
+    border-color: rgba(168, 85, 247, 0.25);
+}
+
+.glass-blue {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(99, 102, 241, 0.08));
+    border-color: rgba(59, 130, 246, 0.25);
+}
+
+.glass-success {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(52, 211, 153, 0.08));
+    border-color: rgba(16, 185, 129, 0.25);
+}
+
+.glass-warning {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(251, 191, 36, 0.08));
+    border-color: rgba(245, 158, 11, 0.25);
+}
+
+.glass-error {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(248, 113, 113, 0.08));
+    border-color: rgba(239, 68, 68, 0.25);
+}
+
+/* Magenta glass for app optimizer */
+.glass-magenta {
+    background: linear-gradient(135deg, rgba(240, 147, 251, 0.12), rgba(245, 87, 108, 0.08));
+    border-color: rgba(240, 147, 251, 0.25);
+}
+
+/* NEW: Latency glass */
+.glass-latency {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.12), rgba(255, 152, 0, 0.08));
+    border-color: rgba(255, 193, 7, 0.25);
+}
+
+/* NEW: Win11 glass */
+.glass-win11 {
+    background: linear-gradient(135deg, rgba(0, 120, 212, 0.12), rgba(0, 180, 216, 0.08));
+    border-color: rgba(0, 180, 216, 0.25);
+}
+
+/* NEW: Security glass */
+.glass-security {
+    background: linear-gradient(135deg, rgba(0, 150, 136, 0.12), rgba(0, 188, 212, 0.08));
+    border-color: rgba(0, 188, 212, 0.25);
+}
+
+/* Glow effects */
+.glow-purple {
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.35), 0 0 50px rgba(168, 85, 247, 0.15);
+}
+
+.glow-blue {
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.35), 0 0 50px rgba(59, 130, 246, 0.15);
+}
+
+.glow-success {
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.35), 0 0 50px rgba(16, 185, 129, 0.15);
+}
+
+.glow-magenta {
+    box-shadow: 0 0 25px rgba(240, 147, 251, 0.35), 0 0 50px rgba(240, 147, 251, 0.15);
+}
+
+/* Frosted backgrounds */
+.frosted-light {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+}
+
+.frosted-dark {
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(12px);
+}
+
+/* NEW: Animated gradient border */
+.glass-animated {
+    position: relative;
+    background: rgba(17, 24, 39, 0.8);
+    border: none;
+}
+
+.glass-animated::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #667eea);
+    background-size: 300% 300%;
+    animation: gradientBorder 4s ease infinite;
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+@keyframes gradientBorder {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* NEW: Premium shine effect */
+.glass-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.08) 50%,
+        transparent 70%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}

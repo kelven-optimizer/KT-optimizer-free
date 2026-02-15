@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KT Optimizer VIP - v2.0</title>
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/glassmorphism.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+
+<body>
+    <!-- MAIN APP -->
+    <div class="app-container" id="app-container" style="display: flex;">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <!-- Logo -->
+            <div class="logo-section">
+                <span class="logo-icon">⚡</span>
+                <div class="logo-text-container">
+                    <div class="logo-title"><span class="logo-text-gradient">KT OPTIMIZER</span> <span
+                            class="free-badge">FREE</span>
+                    </div>
+                    <span class="version-badge"
+                        style="background: #1e293b; color: #94a3b8; border: 1px solid #334155;">v1.0 Free</span>
+                </div>
+            </div>
+
+            <!-- Quick Optimize (Visible for Upsell) -->
+            <button class="quick-optimize-btn" id="quick-optimize">
+                <span>⚡</span>
+                <span>Otimização Rápida</span>
+            </button>
+
+            <!-- Navigation Menu -->
+            <nav class="nav-menu">
+                <button class="nav-item active" data-category="inicio">
+                    <span class="nav-icon"><i class="fas fa-home"></i></span>
+                    <span class="nav-text">Início</span>
+                </button>
+                <button class="nav-item" data-category="limpeza">
+                    <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                    <span class="nav-text">Limpeza & Cache</span>
+                </button>
+                <button class="nav-item" data-category="inicializacao">
+                    <span class="nav-icon"><i class="fas fa-rocket"></i></span>
+                    <span class="nav-text">Inicialização</span>
+                </button>
+                <button class="nav-item" data-category="servicos">
+                    <span class="nav-icon"><i class="fas fa-server"></i></span>
+                    <span class="nav-text">Serviços Windows</span>
+                </button>
+                <button class="nav-item" data-category="debloat">
+                    <span class="nav-icon"><i class="fas fa-trash-alt"></i></span>
+                    <span class="nav-text">Remover Apps</span>
+                </button>
+                <button class="nav-item" data-category="license">
+                    <span class="nav-icon"><i class="fas fa-file-contract"></i></span>
+                    <span class="nav-text">Licença</span>
+                </button>
+                <button class="nav-item" data-category="creator">
+                    <span class="nav-icon"><i class="fas fa-user-code"></i></span>
+                    <span class="nav-text">Criador</span>
+                </button>
+                <button class="nav-item" data-category="buy_vip"
+                    style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%); border: 1px solid rgba(255, 215, 0, 0.3);">
+                    <span class="nav-icon">👑</span>
+                    <span class="nav-text" style="color: #ffd700; font-weight: 700;">Seja VIP (R$ 20)</span>
+                </button>
+            </nav>
+
+            <!-- Sidebar Footer -->
+            <div class="sidebar-footer">
+                <!-- Theme Selector -->
+                <div class="theme-selector">
+                    <label for="theme-select"><i class="fas fa-palette"></i> Tema</label>
+                    <select id="theme-select" class="theme-dropdown">
+                        <option value="default">Padrão</option>
+                        <option value="purple">Dark Purple</option>
+                        <option value="red">Dark Red</option>
+                    </select>
+                </div>
+
+                <!-- Tutorial Button -->
+                <button class="sidebar-btn" id="start-tutorial">
+                    <span><i class="fas fa-question-circle"></i></span>
+                    <span>Ajuda</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="content-header">
+                <div class="header-top">
+                    <h2 class="category-title" id="category-title"><i class="fas fa-home"></i> Início</h2>
+                    <div class="header-actions">
+                        <div class="search-box">
+                            <input type="text" id="search-input" placeholder="Buscar tweaks..." />
+                            <i class="fas fa-search search-icon"></i>
+                        </div>
+                        <button class="icon-btn" id="filter-btn" title="Filtrar">
+                            <span><i class="fas fa-filter"></i></span>
+                        </button>
+                        <button class="icon-btn" id="refresh-btn" title="Atualizar">
+                            <span><i class="fas fa-sync"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Sub-tabs -->
+                <div class="sub-tabs" id="sub-tabs"></div>
+                <!-- Breadcrumb -->
+                <div class="breadcrumb" id="breadcrumb">
+                    <span class="breadcrumb-item">Início</span>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-item active">Início</span>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="content-scroll" id="content-area">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Carregando...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Modal -->
+    <div class="modal" id="tweak-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Detalhes do Tweak</h3>
+                <button class="modal-close" id="modal-close">×</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <p id="modal-description">Informações sobre este tweak...</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="modal-cancel">Cancelar</button>
+                <button class="btn-primary" id="modal-execute">Executar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/error-handler.js"></script>
+    <script src="js/tweaks-database.js"></script>
+    <script src="js/registry-engine.js"></script>
+    <script src="js/category-manager.js"></script>
+    <script src="js/tweak-executor.js"></script>
+    <script src="js/history.js"></script>
+    <script src="js/hardware-detector.js"></script>
+    <script src="js/tutorial.js"></script>
+    <script src="js/update-checker.js"></script>
+    <script src="js/keyauth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
