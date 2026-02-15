@@ -61,11 +61,22 @@
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+            background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: glow 2s ease-in-out infinite alternate;
+            animation: glow 2s ease-in-out infinite alternate, slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes glow {
@@ -124,14 +135,15 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: #fff;
-            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
+            background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
+            color: #000;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            font-weight: 800;
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(168, 85, 247, 0.5);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
         }
 
         .btn-secondary {
@@ -164,7 +176,15 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            animation: fadeInUp 0.6s ease-out backwards;
         }
+
+        .feature-card:nth-child(1) { animation-delay: 0.1s; }
+        .feature-card:nth-child(2) { animation-delay: 0.2s; }
+        .feature-card:nth-child(3) { animation-delay: 0.3s; }
+        .feature-card:nth-child(4) { animation-delay: 0.4s; }
+        .feature-card:nth-child(5) { animation-delay: 0.5s; }
+        .feature-card:nth-child(6) { animation-delay: 0.6s; }
 
         .feature-card::before {
             content: '';
@@ -326,13 +346,30 @@
             background: rgba(0, 0, 0, 0.3);
             padding: 25px 40px;
             border-radius: 15px;
-            border: 1px solid rgba(168, 85, 247, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.3);
             transition: all 0.3s;
+            animation: popIn 0.5s ease-out backwards;
+        }
+
+        .stat-box:nth-child(1) { animation-delay: 0.2s; }
+        .stat-box:nth-child(2) { animation-delay: 0.3s; }
+        .stat-box:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .stat-box:hover {
-            transform: scale(1.05);
-            border-color: var(--primary);
+            transform: scale(1.1) rotate(2deg);
+            border-color: #ffd700;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
         }
 
         .stat-box .icon {
@@ -456,12 +493,22 @@
             <div class="feature-card">
                 <i class="fas fa-microchip feature-icon"></i>
                 <h3>⚡ Otimização de CPU</h3>
-                <p>Unpark cores, ajuste de prioridades, otimizações de energia para máximo desempenho em jogos.</p>
+                <p>Unpark cores, ajuste de prioridades, CPU boost e otimizações de energia para máximo desempenho.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-memory feature-icon"></i>
+                <h3>💾 Otimização de RAM</h3>
+                <p>Cache otimizado, paging ajustado e gestão inteligente de memória para mais performance.</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-desktop feature-icon"></i>
                 <h3>🎨 Otimização de GPU</h3>
-                <p>Tweaks para NVIDIA, AMD e Intel. HAGS, DX12, redução de latência e aumento de FPS.</p>
+                <p>HAGS, prioridade GPU, tweaks NVIDIA/AMD/Intel. Reduz latência e aumenta FPS em jogos.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-mouse feature-icon"></i>
+                <h3>🕹️ Otimização de Periféricos</h3>
+                <p>Mouse sem aceleração, teclado sem delay, USB power saving off para máxima precisão.</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-shield-alt feature-icon"></i>
@@ -575,7 +622,7 @@
                 <a href="https://github.com/kelvenapk"><i class="fab fa-github"></i> GitHub</a>
                 <a href="https://discord.gg/pSWSkzSUPs"><i class="fab fa-discord"></i> Discord</a>
                 <a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a>
-                <a href="README.md"><i class="fas fa-book"></i> Documentação</a>
+                <a href="docs.html"><i class="fas fa-book"></i> Documentação</a>
                 <a href="LICENSE"><i class="fas fa-file-contract"></i> Licença</a>
             </div>
             <p style="margin-top: 20px; font-size: 0.9rem; color: var(--text-muted);">⚠️ Use por sua conta e risco. Crie pontos de restauração antes de aplicar tweaks.</p>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação - KT Optimizer Free</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ffd700;
+            --bg: #0a0118;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text-main);
+            line-height: 1.8;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            border-right: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 30px 20px;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 12px 15px;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-radius: 8px;
+            margin-bottom: 5px;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .content {
+            margin-left: 280px;
+            padding: 40px 60px;
+            max-width: 1200px;
+        }
+
+        .doc-section {
+            margin-bottom: 60px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .doc-section h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .doc-section h2 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .doc-section h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin: 30px 0 15px;
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-block code {
+            color: #ffd700;
+            font-family: 'Courier New', monospace;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 215, 0, 0.2);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: var(--primary);
+            color: #000;
+        }
+
+        .info-box {
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .warning-box {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 4px solid #ff4444;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table th, table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        table th {
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .content {
+                margin-left: 0;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>📚 Documentação</h2>
+        <a href="#intro" class="nav-link active">Introdução</a>
+        <a href="#install" class="nav-link">Instalação</a>
+        <a href="#features" class="nav-link">Funcionalidades</a>
+        <a href="#tweaks" class="nav-link">Tweaks Disponíveis</a>
+        <a href="#build" class="nav-link">Build do Projeto</a>
+        <a href="#security" class="nav-link">Segurança</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="index.html" class="nav-link" style="margin-top: 20px; background: rgba(255, 215, 0, 0.2);">← Voltar ao Site</a>
+    </div>
+
+    <div class="content">
+        <div class="doc-section" id="intro">
+            <h1>⚡ KT Optimizer Free v1.0</h1>
+            <p>O <strong>KT Optimizer Free</strong> é uma ferramenta poderosa e segura para limpar, otimizar e acelerar o seu Windows 10/11. Desenvolvido para gamers e usuários que buscam performance sem comprometer a estabilidade.</p>
+            
+            <div class="info-box">
+                <strong>💡 Versão Gratuita</strong><br>
+                Esta é a versão FREE com 230+ tweaks básicos. A versão VIP PRO inclui 100+ tweaks exclusivos por apenas R$ 20,00.
+            </div>
+        </div>
+
+        <div class="doc-section" id="install">
+            <h2>📦 Instalação</h2>
+            
+            <h3>Requisitos</h3>
+            <ul class="feature-list">
+                <li>Windows 10 ou 11 (64-bit)</li>
+                <li>Privilégios de Administrador</li>
+                <li>4GB RAM mínimo (8GB recomendado)</li>
+                <li>500MB espaço em disco</li>
+            </ul>
+
+            <h3>Como Instalar</h3>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <code>1. Baixe a última versão no GitHub Releases
+2. Extraia o arquivo ZIP
+3. Clique com botão direito no executável
+4. Selecione "Executar como Administrador"
+5. Aceite os termos de uso</code>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Importante:</strong> Sempre crie um ponto de restauração antes de aplicar tweaks!
+            </div>
+        </div>
+
+        <div class="doc-section" id="features">
+            <h2>✨ Funcionalidades</h2>
+
+            <h3>🧹 Limpeza Profunda</h3>
+            <p>Remove 20+ tipos de arquivos temporários:</p>
+            <ul class="feature-list">
+                <li>Cache de navegadores (Chrome, Edge, Firefox, Brave, Opera)</li>
+                <li>Arquivos temporários do Windows</li>
+                <li>Prefetch e thumbnails</li>
+                <li>Logs e crash dumps</li>
+                <li>Cache de apps (Discord, Spotify, Steam)</li>
+                <li>Cache de GPU (NVIDIA, AMD)</li>
+            </ul>
+
+            <h3>🚀 Startup Manager</h3>
+            <p>Controle total sobre inicialização do Windows. Remova apps desnecessários e acelere o boot em até 50%.</p>
+
+            <h3>🗑️ Debloater Inteligente</h3>
+            <p>Remova bloatware com segurança: Xbox, Mapas, Cortana, OneDrive e 50+ apps pré-instalados.</p>
+
+            <h3>⚡ Otimizações de Sistema</h3>
+            <ul class="feature-list">
+                <li><strong>CPU:</strong> Unpark cores, prioridades, boost mode</li>
+                <li><strong>RAM:</strong> Cache otimizado, paging ajustado</li>
+                <li><strong>GPU:</strong> HAGS, prioridade, tweaks NVIDIA/AMD/Intel</li>
+                <li><strong>Periféricos:</strong> Mouse sem aceleração, teclado sem delay</li>
+            </ul>
+        </div>
+
+        <div class="doc-section" id="tweaks">
+            <h2>🛠️ Tweaks Disponíveis</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Tweaks Free</th>
+                        <th>Tweaks VIP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Limpeza</td>
+                        <td>20+</td>
+                        <td>20+</td>
+                    </tr>
+                    <tr>
+                        <td>Sistema</td>
+                        <td>30+</td>
+                        <td>50+</td>
+                    </tr>
+                    <tr>
+                        <td>CPU</td>
+                        <td>10+</td>
+                        <td>25+</td>
+                    </tr>
+                    <tr>
+                        <td>GPU</td>
+                        <td>15+</td>
+                        <td>40+</td>
+                    </tr>
+                    <tr>
+                        <td>RAM</td>
+                        <td>8+</td>
+                        <td>15+</td>
+                    </tr>
+                    <tr>
+                        <td>Rede</td>
+                        <td>5+</td>
+                        <td>20+</td>
+                    </tr>
+                    <tr>
+                        <td>Jogos</td>
+                        <td>20+</td>
+                        <td>50+</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td><strong>230+</strong></td>
+                        <td><strong>330+</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="doc-section" id="build">
+            <h2>🛠️ Build do Projeto</h2>
+
+            <h3>Pré-requisitos</h3>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <code>npm install</code>
+            </div>
+
+            <h3>Desenvolvimento</h3>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <code>npm start</code>
+            </div>
+
+            <h3>Build com Ofuscação</h3>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <code># Windows
+build.bat
+
+# Ou manualmente
+npm run build:secure</code>
+            </div>
+
+            <div class="info-box">
+                <strong>🔒 Segurança:</strong> O código JavaScript é ofuscado automaticamente para proteger contra engenharia reversa.
+            </div>
+        </div>
+
+        <div class="doc-section" id="security">
+            <h2>🔒 Segurança</h2>
+
+            <h3>Código Aberto</h3>
+            <p>O KT Optimizer Free é 100% open-source. Todo o código está disponível no GitHub para auditoria.</p>
+
+            <h3>Pontos de Restauração</h3>
+            <p>Sempre crie um ponto de restauração antes de aplicar tweaks:</p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <code>1. Pesquise "Criar ponto de restauração" no menu Iniciar
+2. Clique em "Criar"
+3. Digite uma descrição (ex: "Antes KT Optimizer")
+4. Clique em OK</code>
+            </div>
+
+            <h3>Reverter Alterações</h3>
+            <p>Para reverter todas as alterações:</p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                <code>1. Pesquise "Restauração do Sistema"
+2. Escolha o ponto de restauração criado
+3. Siga as instruções na tela</code>
+            </div>
+        </div>
+
+        <div class="doc-section" id="faq">
+            <h2>❓ FAQ Rápido</h2>
+
+            <h3>Quanto de FPS vou ganhar?</h3>
+            <p>Depende do hardware, mas usuários reportam ganhos de 10-30% em média.</p>
+
+            <h3>É seguro?</h3>
+            <p>Sim! Código open-source, sem vírus. Sempre crie pontos de restauração.</p>
+
+            <h3>Preciso reiniciar?</h3>
+            <p>Alguns tweaks requerem reinicialização. O app informará quando necessário.</p>
+
+            <h3>Como comprar VIP?</h3>
+            <p>Entre no <a href="https://discord.gg/pSWSkzSUPs" style="color: var(--primary);">Discord oficial</a> e siga as instruções. Apenas R$ 20,00.</p>
+
+            <div style="text-align: center; margin-top: 60px; padding: 40px; background: var(--card-bg); border-radius: 15px;">
+                <h3 style="color: var(--primary); margin-bottom: 15px;">Precisa de mais ajuda?</h3>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Visite nossa página de FAQ completa ou entre no Discord!</p>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <a href="faq.html" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; background: rgba(255, 215, 0, 0.2); border: 1px solid var(--primary); color: var(--primary); text-decoration: none; border-radius: 10px; font-weight: bold;">
+                        <i class="fas fa-question-circle"></i> FAQ Completo
+                    </a>
+                    <a href="https://discord.gg/pSWSkzSUPs" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; background: linear-gradient(135deg, #ffd700, #ffa500); color: #000; text-decoration: none; border-radius: 10px; font-weight: bold;">
+                        <i class="fab fa-discord"></i> Discord
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        
+                        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Copy code function
+        function copyCode(btn) {
+            const code = btn.parentElement.querySelector('code').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.textContent = 'Copiado!';
+                setTimeout(() => btn.textContent = 'Copiar', 2000);
+            });
+        }
+
+        // Highlight active section on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.doc-section');
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -116,4 +116,11 @@ Este software realiza alterações no Registro do Windows e configurações do s
 ### Removido
 - ❌ Benchmark (não funcionava corretamente)
 
-uso pessoal.
+### Corrigido
+- 🔧 Data de licença corrigida para 26 dias
+- 🔧 Melhorias no site da versão free
+- 🔧 Otimizações de performance
+
+---
+
+Licença MIT - Código Aberto para aprendizado e uso pessoal.
