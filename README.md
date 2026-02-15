@@ -4,7 +4,7 @@
 
 O **KT Optimizer Free** é uma ferramenta poderosa e segura para limpar, otimizar e acelerar o seu Windows 10/11. Desenvolvido para gamers e usuários que buscam performance sem comprometer a estabilidade.
 
-![KT Optimizer Free](https://raw.githubusercontent.com/kelvenapk/kt-optimizer-free/main/assets/preview.png)
+![KT Optimizer Free](https://raw.githubusercontent.com/kelven-optimizer/KT-optimizer-free/refs/heads/main/previa.png)
 
 ## ✨ Funcionalidades (Free)
 
@@ -56,7 +56,7 @@ O **KT Optimizer Free** é uma ferramenta poderosa e segura para limpar, otimiza
 - Privilégios de Administrador
 
 ### Como Usar
-1. Baixe a [última release](https://github.com/kelvenapk/kt-optimizer-free/releases).
+1. Baixe a [última release](https://kelven-optimizer.github.io/KT-optimizer-free/).
 2. Extraia o arquivo `.zip` ou execute o instalador.
 3. Clique com o botão direito no executável e selecione **"Executar como Administrador"**.
 4. Navegue pelas abas e aplique as otimizações desejadas.
@@ -97,8 +97,9 @@ Este software realiza alterações no Registro do Windows e configurações do s
 ## 🤝 Contribuição e Suporte
 
 - **Discord Oficial:** [Entre na comunidade](https://discord.gg/pSWSkzSUPs)
+- **Site Oficial:** [https://kelven-optimizer.github.io/KT-optimizer-free/](https://kelven-optimizer.github.io/KT-optimizer-free/)
 - **Desenvolvedor:** KelvenAPK
-- **GitHub:** [kelvenapk](https://github.com/kelvenapk)
+- **GitHub:** [kelven-optimizer](https://github.com/kelven-optimizer)
 
 ---
 
@@ -115,12 +116,3 @@ Este software realiza alterações no Registro do Windows e configurações do s
 
 ### Removido
 - ❌ Benchmark (não funcionava corretamente)
-
-### Corrigido
-- 🔧 Data de licença corrigida para 26 dias
-- 🔧 Melhorias no site da versão free
-- 🔧 Otimizações de performance
-
----
-
-Licença MIT - Código Aberto para aprendizado e uso pessoal.
