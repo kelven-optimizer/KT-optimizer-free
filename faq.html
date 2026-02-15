@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - KT Optimizer Free</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #a855f7;
+            --bg: #0a0118;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.2);
+        }
+
+        .faq-question {
+            padding: 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .faq-question:hover {
+            background: rgba(168, 85, 247, 0.05);
+        }
+
+        .faq-icon {
+            color: var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 25px;
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 25px 25px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        .category {
+            margin-top: 50px;
+        }
+
+        .category h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 8px;
+            border-radius: 5px;
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Voltar ao Site
+        </a>
+
+        <h1>❓ Perguntas Frequentes</h1>
+        <p class="subtitle">Tire suas dúvidas sobre o KT Optimizer Free</p>
+
+        <div class="category">
+            <h2>🚀 Instalação e Uso</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Como instalar o KT Optimizer?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>1. Baixe a última versão no <a href="https://github.com/kelvenapk/kt-optimizer-free/releases" style="color: var(--primary);">GitHub Releases</a></p>
+                    <p>2. Extraia o arquivo ZIP</p>
+                    <p>3. Clique com botão direito no executável e selecione "Executar como Administrador"</p>
+                    <p>4. Aceite os termos de uso e comece a otimizar!</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Preciso de privilégios de administrador?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Sim! O KT Optimizer modifica o Registro do Windows e configurações de sistema, portanto requer privilégios de administrador para funcionar corretamente.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>É compatível com Windows 10 e 11?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Sim! O KT Optimizer Free é totalmente compatível com Windows 10 (64-bit) e Windows 11 (64-bit).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>🔒 Segurança</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>É seguro usar o KT Optimizer?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Sim! O código é 100% open-source e está disponível no GitHub. Não contém vírus, malware ou spyware. Porém, sempre recomendamos criar um ponto de restauração antes de aplicar tweaks.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Como criar um ponto de restauração?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>No aplicativo, vá em "Ações Rápidas" e clique em "Backup". Isso criará automaticamente um ponto de restauração do Windows.</p>
+                    <p>Ou manualmente: Pesquise "Criar ponto de restauração" no menu Iniciar → Criar → Digite uma descrição → OK</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Posso reverter as alterações?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Sim! A maioria dos tweaks pode ser revertida desativando o toggle. Para reverter tudo, use o ponto de restauração criado anteriormente.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>⚡ Performance</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Quanto de FPS vou ganhar?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Depende do seu hardware e configuração atual. Em média, usuários reportam ganhos de 10-30% de FPS em jogos após aplicar as otimizações.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Quais tweaks devo aplicar primeiro?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Recomendamos começar por:</p>
+                    <p>1. <strong>Limpeza</strong> - Libere espaço em disco</p>
+                    <p>2. <strong>Startup Manager</strong> - Acelere o boot</p>
+                    <p>3. <strong>Debloat</strong> - Remova apps desnecessários</p>
+                    <p>4. <strong>Otimizações de Sistema</strong> - Aplique tweaks de CPU/GPU</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Preciso reiniciar após aplicar tweaks?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Alguns tweaks requerem reinicialização para ter efeito completo. O aplicativo informará quando necessário.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>💎 Versão VIP</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Qual a diferença entre Free e VIP?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>A versão VIP inclui:</p>
+                    <p>✅ 100+ tweaks exclusivos</p>
+                    <p>✅ Otimizações avançadas de rede (redução de ping)</p>
+                    <p>✅ FPS Boosters específicos por jogo</p>
+                    <p>✅ Tweaks exclusivos NVIDIA/AMD/Intel</p>
+                    <p>✅ Modo latência ultra-baixa</p>
+                    <p>✅ Suporte prioritário no Discord</p>
+                    <p>✅ Atualizações vitalícias</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Como comprar a versão VIP?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Entre no nosso <a href="https://discord.gg/pSWSkzSUPs" style="color: var(--primary);">Discord oficial</a> e siga as instruções no canal de vendas. Pagamento via PIX ou Cartão por apenas R$ 20,00.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>A licença VIP expira?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Não! A licença VIP é vitalícia. Pague uma vez e tenha acesso para sempre, incluindo todas as atualizações futuras.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>🛠️ Problemas Comuns</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>O aplicativo não abre</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Certifique-se de:</p>
+                    <p>1. Executar como Administrador</p>
+                    <p>2. Desativar temporariamente o antivírus</p>
+                    <p>3. Ter o .NET Framework instalado</p>
+                    <p>4. Verificar se o Windows está atualizado</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Tweak não está funcionando</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Alguns tweaks requerem reinicialização. Se o problema persistir, tente:</p>
+                    <p>1. Desativar e reativar o tweak</p>
+                    <p>2. Reiniciar o computador</p>
+                    <p>3. Verificar se tem privilégios de administrador</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Meu PC ficou instável após usar</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Restaure o ponto de restauração criado antes de usar o aplicativo:</p>
+                    <p>1. Pesquise "Restauração do Sistema" no menu Iniciar</p>
+                    <p>2. Escolha o ponto de restauração mais recente</p>
+                    <p>3. Siga as instruções na tela</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>📞 Suporte</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Como obter suporte?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Entre no nosso <a href="https://discord.gg/pSWSkzSUPs" style="color: var(--primary);">Discord oficial</a> e abra um ticket no canal de suporte. Nossa comunidade e equipe estão prontos para ajudar!</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Posso contribuir com o projeto?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Sim! O projeto é open-source. Visite nosso <a href="https://github.com/kelvenapk/kt-optimizer-free" style="color: var(--primary);">GitHub</a> e faça um Pull Request com suas melhorias.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 60px; padding: 40px; background: var(--card-bg); border-radius: 15px;">
+            <h3 style="color: var(--primary); margin-bottom: 15px;">Ainda tem dúvidas?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Entre em contato conosco no Discord!</p>
+            <a href="https://discord.gg/pSWSkzSUPs" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; background: linear-gradient(135deg, #a855f7, #ec4899); color: white; text-decoration: none; border-radius: 10px; font-weight: bold;">
+                <i class="fab fa-discord"></i> Entrar no Discord
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

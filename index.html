@@ -4,15 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KT Optimizer Free - Aumente seu FPS</title>
+    <title>KT Optimizer Free - Otimize seu Windows</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --primary: #ffd700;
-            --bg: #0f172a;
-            --card-bg: #1e293b;
+            --primary: #a855f7;
+            --primary-dark: #7c3aed;
+            --accent: #ec4899;
+            --bg: #0a0118;
+            --bg-secondary: #1a0b2e;
+            --card-bg: #16213e;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
+            --glow: rgba(168, 85, 247, 0.5);
         }
 
         * {
@@ -26,6 +30,19 @@
             background: var(--bg);
             color: var(--text-main);
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
         }
 
         .container {
@@ -34,166 +51,417 @@
             padding: 0 20px;
         }
 
+        /* Header */
         header {
-            padding: 80px 0;
+            padding: 100px 0 80px;
             text-align: center;
-            background: linear-gradient(to bottom, #1e293b 0%, #0f172a 100%);
+            position: relative;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px var(--glow)); }
+            to { filter: drop-shadow(0 0 40px var(--glow)); }
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             color: var(--text-muted);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 15px 30px;
-            border-radius: 8px;
+            padding: 16px 32px;
+            border-radius: 12px;
             font-weight: bold;
             text-decoration: none;
-            transition: transform 0.2s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .btn-primary {
-            background: var(--primary);
-            color: #000;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(168, 85, 247, 0.5);
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(168, 85, 247, 0.3);
+            backdrop-filter: blur(10px);
         }
 
-        .btn:hover {
+        .btn-secondary:hover {
+            background: rgba(168, 85, 247, 0.1);
+            border-color: var(--primary);
             transform: translateY(-3px);
         }
 
+        /* Features */
         .features {
-            padding: 60px 0;
+            padding: 80px 0;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
         .feature-card {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(168, 85, 247, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(168, 85, 247, 0.3);
         }
 
         .feature-icon {
-            font-size: 2rem;
-            color: var(--primary);
+            font-size: 3rem;
             margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
         }
 
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* Comparison Table */
         .comparison {
-            padding: 60px 0;
+            padding: 80px 0;
+        }
+
+        .comparison h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
         .comparison-table th,
         .comparison-table td {
-            padding: 15px;
+            padding: 20px;
             text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(168, 85, 247, 0.1);
         }
 
         .comparison-table th {
-            color: var(--text-muted);
-            font-weight: normal;
+            background: rgba(168, 85, 247, 0.1);
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .comparison-table tr {
+            transition: all 0.3s;
+        }
+
+        .comparison-table tr:hover {
+            background: rgba(168, 85, 247, 0.05);
         }
 
         .check {
             color: #10b981;
+            font-size: 1.2rem;
         }
 
         .cross {
             color: #ef4444;
+            font-size: 1.2rem;
         }
 
+        /* VIP CTA */
         .vip-cta {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 140, 0, 0.1));
-            border: 1px solid var(--primary);
-            padding: 40px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.2));
+            border: 2px solid var(--primary);
+            padding: 60px;
+            border-radius: 30px;
             text-align: center;
-            margin: 60px 0;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
         }
 
+        .vip-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(168, 85, 247, 0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .vip-cta h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .vip-cta p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stats-grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            transition: all 0.3s;
+        }
+
+        .stat-box:hover {
+            transform: scale(1.05);
+            border-color: var(--primary);
+        }
+
+        .stat-box .icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-box .value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .stat-box .label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
         footer {
-            padding: 40px 0;
+            padding: 60px 0;
             text-align: center;
             color: var(--text-muted);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(168, 85, 247, 0.1);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 15px;
+            transition: all 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Particles */
+        .particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            animation: particle-float 4s ease-in-out infinite;
+        }
+
+        @keyframes particle-float {
+            0% {
+                opacity: 0;
+                transform: translateY(0) scale(0);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .features { grid-template-columns: 1fr; }
+            .vip-cta { padding: 40px 20px; }
         }
     </style>
 </head>
 
 <body>
+    <div class="bg-animation"></div>
 
     <header>
         <div class="container hero">
-            <h1>⚡ KT Optimizer <span
-                    style="font-size: 0.5em; background: var(--primary); color: #000; padding: 5px 15px; border-radius: 20px; vertical-align: middle;">v1.0
-                    FREE</span>
-            </h1>
-            <p>🚀 A ferramenta definitiva para otimizar seu Windows 10/11, reduzir latência e aumentar FPS em jogos. Mais de 200+ tweaks disponíveis!</p>
+            <h1>⚡ KT Optimizer <span style="font-size: 0.5em; background: linear-gradient(135deg, #ffd700, #ff8c00); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">FREE</span></h1>
+            <p>🚀 A ferramenta definitiva para otimizar seu Windows 10/11. Mais de 300+ tweaks, limpeza profunda e performance extrema!</p>
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="https://github.com/kelvenapk/kt-optimizer-free/releases" class="btn btn-primary"><i
-                        class="fas fa-download"></i> Download Grátis</a>
-                <a href="https://discord.gg/pSWSkzSUPs" class="btn btn-secondary"><i class="fab fa-discord"></i>
-                    Discord VIP</a>
+                <a href="https://github.com/kelvenapk/kt-optimizer-free/releases" class="btn btn-primary">
+                    <i class="fas fa-download"></i> Download Grátis
+                </a>
+                <a href="https://discord.gg/pSWSkzSUPs" class="btn btn-secondary">
+                    <i class="fab fa-discord"></i> Discord VIP
+                </a>
             </div>
         </div>
     </header>
 
     <div class="container">
-        <div class="features">
+        <div class="features fade-in">
             <div class="feature-card">
                 <i class="fas fa-broom feature-icon"></i>
                 <h3>🧹 Limpeza Profunda</h3>
-                <p>Remova arquivos temporários, cache de navegadores e lixo do sistema com um clique. Libere GB de espaço!</p>
+                <p>Remova 20+ tipos de arquivos temporários, cache de navegadores e lixo do sistema. Libere GB de espaço instantaneamente!</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-rocket feature-icon"></i>
                 <h3>🚀 Startup Manager</h3>
-                <p>Controle quais aplicativos iniciam com o Windows para um boot até 50% mais rápido.</p>
+                <p>Controle total sobre inicialização. Boot até 50% mais rápido removendo apps desnecessários.</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-trash-alt feature-icon"></i>
                 <h3>🗑️ Debloater Inteligente</h3>
-                <p>Remova bloatware pré-instalado (Xbox, Mapas, Cortana, OneDrive) com segurança total.</p>
+                <p>Remova bloatware com segurança: Xbox, Mapas, Cortana, OneDrive e 50+ apps pré-instalados.</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-microchip feature-icon"></i>
                 <h3>⚡ Otimização de CPU</h3>
-                <p>Unpark CPU cores, ajuste de prioridades e otimizações de energia para máximo desempenho.</p>
+                <p>Unpark cores, ajuste de prioridades, otimizações de energia para máximo desempenho em jogos.</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-desktop feature-icon"></i>
                 <h3>🎨 Otimização de GPU</h3>
-                <p>Tweaks básicos para NVIDIA, AMD e Intel. Reduza latência e aumente FPS em jogos.</p>
+                <p>Tweaks para NVIDIA, AMD e Intel. HAGS, DX12, redução de latência e aumento de FPS.</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-shield-alt feature-icon"></i>
@@ -202,19 +470,19 @@
             </div>
         </div>
 
-        <div class="comparison">
-            <h2 style="text-align: center; margin-bottom: 20px;">📊 Comparativo: Free vs VIP</h2>
+        <div class="comparison fade-in">
+            <h2>📊 Comparativo: Free vs VIP</h2>
             <table class="comparison-table">
                 <thead>
                     <tr>
                         <th>Recurso</th>
-                        <th>Versão Free v1.0 🆓</th>
-                        <th style="color: var(--primary); font-weight: bold;">Versão VIP 👑</th>
+                        <th>Versão Free 🆓</th>
+                        <th style="color: #ffd700;">Versão VIP 👑</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Limpeza e Otimização Básica</td>
+                        <td>Limpeza Profunda (20+ tipos)</td>
                         <td><span class="check">✔</span></td>
                         <td><span class="check">✔</span></td>
                     </tr>
@@ -246,7 +514,7 @@
                     <tr>
                         <td>FPS Booster para Jogos</td>
                         <td><span class="cross">✘</span></td>
-                        <td><span class="check">✔</span> Apex, Valorant, CS2, Fortnite</td>
+                        <td><span class="check">✔</span> 15+ jogos otimizados</td>
                     </tr>
                     <tr>
                         <td>Tweaks Exclusivos NVIDIA/AMD/Intel</td>
@@ -272,43 +540,97 @@
             </table>
         </div>
 
-        <div class="vip-cta">
-            <h2 style="color: var(--primary); margin-bottom: 15px;">👑 Desbloqueie o Potencial Máximo</h2>
-            <p style="margin-bottom: 20px; font-size: 1.1rem;">Adquira a versão <strong>VIP PRO</strong> por apenas <strong style="font-size: 1.3em; color: var(--primary);">R$ 20,00</strong> e tenha acesso a
-                <strong>TODOS</strong> os recursos exclusivos + atualizações vitalícias!</p>
-            <div style="display: flex; gap: 15px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap;">
-                <div style="background: rgba(255,255,255,0.05); padding: 15px 25px; border-radius: 10px;">
-                    <div style="font-size: 2rem;">⚡</div>
-                    <div style="font-size: 0.9rem; color: var(--text-muted);">+50% FPS</div>
+        <div class="vip-cta fade-in">
+            <h2>👑 Desbloqueie o Potencial Máximo</h2>
+            <p>Adquira a versão <strong>VIP PRO</strong> por apenas <strong style="font-size: 1.5em; color: #ffd700;">R$ 20,00</strong> e tenha acesso a <strong>TODOS</strong> os recursos exclusivos!</p>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="icon">⚡</div>
+                    <div class="value">+50%</div>
+                    <div class="label">FPS</div>
                 </div>
-                <div style="background: rgba(255,255,255,0.05); padding: 15px 25px; border-radius: 10px;">
-                    <div style="font-size: 2rem;">🎯</div>
-                    <div style="font-size: 0.9rem; color: var(--text-muted);">-70% Latência</div>
+                <div class="stat-box">
+                    <div class="icon">🎯</div>
+                    <div class="value">-70%</div>
+                    <div class="label">Latência</div>
                 </div>
-                <div style="background: rgba(255,255,255,0.05); padding: 15px 25px; border-radius: 10px;">
-                    <div style="font-size: 2rem;">🚀</div>
-                    <div style="font-size: 0.9rem; color: var(--text-muted);">Boot 2x Rápido</div>
+                <div class="stat-box">
+                    <div class="icon">🚀</div>
+                    <div class="value">2x</div>
+                    <div class="label">Boot Rápido</div>
                 </div>
             </div>
-            <a href="https://discord.gg/pSWSkzSUPs" class="btn btn-primary" style="font-size: 1.1rem; padding: 18px 40px;">💎 Comprar VIP no Discord</a>
+
+            <a href="https://discord.gg/pSWSkzSUPs" class="btn btn-primary" style="font-size: 1.2rem; padding: 20px 50px;">
+                💎 Comprar VIP no Discord
+            </a>
         </div>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 KelvenAPK. Todos os direitos reservados. | <a href="https://github.com/kelvenapk/kt-optimizer-free" style="color: var(--primary); text-decoration: none;">Código Aberto no GitHub</a></p>
+            <p>&copy; 2025 KelvenAPK. Todos os direitos reservados. | <a href="https://github.com/kelvenapk/kt-optimizer-free">Código Aberto no GitHub</a></p>
             <div style="margin-top: 20px;">
-                <a href="https://github.com/kelvenapk"
-                    style="color: var(--text-muted); margin: 0 10px; text-decoration: none;"><i
-                        class="fab fa-github"></i> GitHub</a>
-                <a href="https://discord.gg/pSWSkzSUPs"
-                    style="color: var(--text-muted); margin: 0 10px; text-decoration: none;"><i
-                        class="fab fa-discord"></i> Discord</a>
+                <a href="https://github.com/kelvenapk"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://discord.gg/pSWSkzSUPs"><i class="fab fa-discord"></i> Discord</a>
+                <a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a>
+                <a href="README.md"><i class="fas fa-book"></i> Documentação</a>
+                <a href="LICENSE"><i class="fas fa-file-contract"></i> Licença</a>
             </div>
-            <p style="margin-top: 15px; font-size: 0.9rem; color: var(--text-muted);">⚠️ Use por sua conta e risco. Crie pontos de restauração antes de aplicar tweaks.</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: var(--text-muted);">⚠️ Use por sua conta e risco. Crie pontos de restauração antes de aplicar tweaks.</p>
         </div>
     </footer>
 
+    <script>
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Particle Effect
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.animationDelay = Math.random() * 4 + 's';
+            document.body.appendChild(particle);
+            
+            setTimeout(() => particle.remove(), 4000);
+        }
+
+        setInterval(createParticle, 300);
+
+        // Button Ripple Effect
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+    </script>
 </body>
 
 </html>
